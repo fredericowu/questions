@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  questions-db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+    ports:
+      - 13306:3306
+    volumes:
+      - ./initdb:/docker-entrypoint-initdb.d
+
